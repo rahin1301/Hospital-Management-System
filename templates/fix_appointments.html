@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../static/js/signup.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- <h1>hello welcome to user home page.</h1>
+    <a href="/logout">logout</a> -->
+
+
+
+    <div class="container">
+        <div class="header">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <a class="navbar-brand" href="#">Hospital  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;                         </a>
+
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+
+                  <li class="nav-item active">
+                    <a class="nav-link" href="javascript:history.back()">Back <span class="sr-only">(current)</span></a>
+                  </li>&emsp;
+
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/userHome">Main Page <span class="sr-only">(current)</span></a>
+                  </li>&emsp;
+                  <li class="nav-item active">                   
+                    <a class="nav-link" href="/logout">Logout <span class="sr-only">(current)</span></a>
+                  </li>
+                    <!-- <li class="nav-item">
+                      <a class="nav-link" href="showSignIn">signin</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">sign up</a>
+                    </li> -->
+                    <!-- <li class="nav-item">
+                      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li> -->
+                  </ul>
+                </div>
+              </nav>
+        </div>
+
+
+
+
+        <div class="jumbotron">
+            <h1 align="center">Fix Appointments</h1>
+ 
+        </div>
+        <br>
+        <h2>Doctors Table</h2>
+        <br>
+        <table style="width:100%" border=" 1px solid black">
+          <thead align="center">
+          <tr>
+              <th>Doctor ID</th>
+              <th>Name</th>
+              <th>Specialist</th>
+          </tr>
+          </thead>
+          <tbody>
+              {% for row in value %} 
+                  <tr>
+                      <td>{{row[4]}}</td>
+                      <td>{{row[1]}}</td>
+                      <td>{{row[2]}}</td>
+                  </tr>
+              {% endfor %}
+          </tbody>
+        </table>
+
+        <form class="form-signin" action="/app_fix" method="post">
+          
+          <label for="ano">Appointment No.</label>
+          <input type="text" name="ano" id="inputName" class="form-control" placeholder="Enter Appointment No." required autofocus>
+          <br>
+          <label for="did">Doctor's ID</label>
+          <input type="text" name="did" id="inputName" class="form-control" placeholder="Enter Doctor's ID" required autofocus>
+          <br>
+          <label for="pid" >Patient's ID</label>
+          <input type="text" name="pid" id="inputName" class="form-control" placeholder="Enter Patient's ID" required autofocus>
+          <br>
+          <label for="doa" >Date of Appointment</label>
+          <input type="text" name="doa" id="inputName" class="form-control" placeholder="YYYY-MM-DD" required autofocus>
+          <br>
+          <label for="toa" >Time of Appointment</label>
+          <input type="text" name="toa" id="inputName" class="form-control" placeholder="HH:MM:SS" required autofocus>
+          <br>
+          <label for="stat" >Appointment Status</label>
+          <input type="text" name="stat" id="inputName" class="form-control" placeholder="Pending/Complete" required autofocus>
+          <br>
+                    <!-- <label for="inputPassword" class="sr-only">Password</label>
+          <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required> -->
+          <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="submit">Fix the Appointment</button>
+          <!-- <button id="subm" class="btn btn-lg btn-primary btn-block" type="button">Sign up</button> -->
+        </form>
+
+
+    </div>
+    
+</body>
+</html>

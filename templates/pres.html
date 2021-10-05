@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../static/js/signup.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+
+  
+
+
+</head>
+<body>
+    <!-- <h1>hello welcome to user home page.</h1>
+    <a href="/logout">logout</a> -->
+
+
+
+    <div class="container">
+        <div class="header">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">Hospital  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;                         </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+  
+                    <li class="nav-item active">
+                      <a class="nav-link" href="javascript:history.back()">Back <span class="sr-only">(current)</span></a>
+                    </li>&emsp;
+  
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/userHome">Main Page <span class="sr-only">(current)</span></a>
+                    </li>&emsp;
+                    <li class="nav-item active">                   
+                      <a class="nav-link" href="/logout">Logout <span class="sr-only">(current)</span></a>
+                    </li>
+                    <!-- <li class="nav-item">
+                      <a class="nav-link" href="showSignIn">signin</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">sign up</a>
+                    </li> -->
+                    <!-- <li class="nav-item">
+                      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li> -->
+                  </ul>
+                </div>
+              </nav>
+        </div>
+
+
+
+
+        <div class="jumbotron">
+            <h1 align="center">Prescription</h1>
+ 
+        </div>
+        
+        <!-- <h2>Doctors Table</h2>
+        <table style="width:100%" border=" 1px solid black">
+          <thead align="center">
+          <tr>
+              <th>Doctor ID</th>
+              <th>Name</th>
+              <th>Specialist</th>
+          </tr>
+          </thead>
+          <tbody>
+              {% for row in value %} 
+                  <tr>
+                      <td>{{row[4]}}</td>
+                      <td>{{row[1]}}</td>
+                      <td>{{row[2]}}</td>
+                  </tr>
+              {% endfor %}
+          </tbody>
+        </table> -->
+
+        <!-- <h3>Doctor Name : {{value[0][1]}}</h3>
+        <h3>Patient Name : {{value[0][3]}}</h3> -->
+
+
+
+        <!-- <label for="qty">Enter total number of medicine types</label>
+        <input type="text" name="qty" id="qtyy" class="form-control" required autofocus>
+        <br>
+
+        <button type="button"  id="qwerty">click</button>
+        <div id="hello"></div> -->
+
+        <form class="form-signin" action="/pres1" method="post">
+          
+          <label for="ano">Appointment No.</label>
+          <input type="text" name="ano" id="inputName" class="form-control" value="{{value[0][7]}}" readonly autofocus>
+          <br>
+          <label for="did">Doctor's ID</label>
+          <input type="text" name="did" id="inputName" class="form-control" value="{{value[0][0]}}" readonly autofocus>
+          <br>
+
+          <label for="dname">Doctor's Name</label>
+          <input type="text" name="dname" id="inputName" class="form-control" value="{{value[0][1]}}" readonly autofocus>
+          <br>
+
+          <label for="pname">Patient's Name</label>
+          <input type="text" name="pname" id="inputName" class="form-control" value="{{value[0][3]}}" readonly autofocus>
+          <br>
+
+          <label for="qty">Enter total number of medicine types</label>
+          <input type="text" name="qty" id="qtyy" class="form-control" required autofocus>
+          <br>
+
+            <div id="hello"></div>
+
+        <!-- <a id="btnn">click</a> -->
+
+                    <!-- <label for="inputPassword" class="sr-only">Password</label>
+          <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required> -->
+          <button type="button"  id="qwerty" class="btn btn-lg btn-primary btn-block" >Next</button>
+          <!-- <button id="subm" class="btn btn-lg btn-primary btn-block" type="button">Sign up</button> -->
+          <button type="submit"  id="butn" class="btn btn-lg btn-primary btn-block" >Submit</button>
+        </form>
+
+
+    </div>
+
+
+    <script type = "text/javascript">
+        var wrapper = document.getElementById("hello");
+        var but = document.getElementById("qwerty");
+        var butn = document.getElementById("butn");
+        butn.style.display = "none";
+
+        console.log(qtyy);
+        but.addEventListener("click",function(){
+            var qtyy = document.getElementById("qtyy").value;
+            
+            
+            var myHTML = '';
+            but.innerHTML = "Submit";
+            // but.type = "submit";
+            // console.log(but.innerHTML);
+              for (var i = 0; i < qtyy; i++) {
+              myHTML += '<label for="med'+(i+1)+'">Medicine '+(i+1)+'</label><input type="text" name="med'+(i+1)+'" id="inputName" class="form-control" placeholder="Medicine ID" required autofocus><br>    <label for="qt'+(i+1)+'">Quantity '+(i+1)+'</label><input type="text" name="qt'+(i+1)+'" id="inputName" class="form-control" placeholder=" Quantity of Medicine '+(i+1)+'" required autofocus><br>';
+              }
+          
+              wrapper.innerHTML = myHTML
+              but.style.display = "none";
+              butn.style.display = "block";
+
+        });
+        
+    
+    </script>
+    
+</body>
+</html>
