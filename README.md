@@ -34,9 +34,7 @@ A receptionist SignIn with a provided username and password to successfully LogI
 <br />
 
 
-![alt text](/snaps/2.jpg "2")
 
-<br />
 
 
 ![alt text](/snaps/3.jpg "3")
