@@ -3,11 +3,11 @@ A Flask Web Application which uses MySQL to store the database.
 
 
 # Flow of the project
-A receptionist SignIn with a provided username and password to successfully LogIn the system. After that, a receptionist can perform following task:
+A Receptionist SignIn with a provided username and password to successfully LogIn the system. After that, a receptionist can perform following task:
 
 * View personal details
-    * Details of patients admitted in hospital.
-    * Details of doctors working for a particular hospital.
+    * Details of Patients admitted in hospital.
+    * Details of Doctors working for a particular hospital.
     * Details of co-workers associated with a hospital.
 
 * Deal Appointments
